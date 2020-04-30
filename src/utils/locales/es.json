@@ -1,0 +1,6 @@
+{
+  "errors": {
+    "ERR_TIMEOUT": "La búsqueda está tomando más tiempo del esperado, comprueba tu conexión a Internet e intenta de nuevo.",
+    "unknown": "Error no identificado"
+  }
+}
