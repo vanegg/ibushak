@@ -2,7 +2,8 @@ import basicPromise from '../utils/BasicPromise'
 
 class Request {
   get(url, queryParams) {
-    let urlWithParams = url + "?sort=price_asc&category=MLM1051&offset=" + queryParams['offset']
+    let query = this._serialize(queryParams)
+    let urlWithParams = url + "?" + query
     return this._fetch(urlWithParams, { method: 'GET' })
   }
 
@@ -16,6 +17,14 @@ class Request {
       })
     }
     return linksObject
+  }
+  _serialize = function (obj) {
+    var str = [];
+    for (var p in obj)
+      if (obj.hasOwnProperty(p)) {
+        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+      }
+    return str.join("&");
   }
 
   async parseResponse (response) {

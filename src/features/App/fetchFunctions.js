@@ -38,7 +38,7 @@ async function _format(results) {
       brand = results[el].attributes.filter(function (attr) {
         return attr.id == 'BRAND';
       })[0]
-      results[el].brand = brand ? brand.value_name : ''
+      results[el].brand = brand ? brand.value_name : 'NA'
     }
   }
   return results
