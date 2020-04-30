@@ -14,7 +14,6 @@ export default class Ibushak extends Component {
   _initialState = (siteId = null) => {
     return {
       siteId: siteId,
-      firstSale: '',
       data: [],
       countItems: 0,
       loaded: false,
@@ -41,7 +40,7 @@ export default class Ibushak extends Component {
   }
 
   _fetchDataWithOffset = async (limit = 50) => {
-    for (let offset = limit; offset <= 950; offset = offset + limit) {
+    for (let offset = limit; offset <= 1000; offset = offset + limit) {
       this._fetchData(this.state.siteId, this.state.queryParams, offset)
     }
   }

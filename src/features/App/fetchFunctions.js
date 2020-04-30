@@ -19,7 +19,6 @@ export const _fetchData = async function (siteId, params, offset = null, ) {
             data: this.state.data.concat(formatData),
             countItems: this.state.countItems + body.results.length
           })
-          console.log(this.state)
         } else {
           this.setState({
             data: formatData

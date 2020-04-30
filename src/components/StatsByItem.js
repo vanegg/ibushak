@@ -36,7 +36,7 @@ export default class StatsByItem extends Component {
           </thead>
           <tbody>
           {this.state.items && this.state.items.map(el => (
-            <tr key={el.id}>
+            <tr>
               <td>{el.id}</td>
               <td>{el.seller.id}</td>
               <td>{el.seller.name}</td>
