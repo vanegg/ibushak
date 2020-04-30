@@ -2,11 +2,8 @@ import request from 'api/request'
 import { ML_ITEMS } from 'api/constants'
 import { deserialise } from 'kitsu-core'
 
-export const _fetchData = async function (siteId, params, limit = null, offset = null, ) {
+export const _fetchData = async function (siteId, params, offset = null, ) {
   let queryParams = {... params}
-  if (limit) {
-    queryParams['limit'] = limit
-  }
   if (offset) {
     queryParams['offset'] = offset
   }
@@ -42,7 +39,7 @@ async function _format(results) {
       brand = results[el].attributes.filter(function (attr) {
         return attr.id == 'BRAND';
       })[0]
-      results[el].brand = brand.value_name
+      results[el].brand = brand ? brand.value_name : ''
     }
   }
   return results

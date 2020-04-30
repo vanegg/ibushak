@@ -2,7 +2,7 @@ import basicPromise from '../utils/BasicPromise'
 
 class Request {
   get(url, queryParams) {
-    let urlWithParams = url + "?sort=price_asc&category=MLM1051"
+    let urlWithParams = url + "?sort=price_asc&category=MLM1051&offset=" + queryParams['offset']
     return this._fetch(urlWithParams, { method: 'GET' })
   }
 

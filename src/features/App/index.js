@@ -41,8 +41,8 @@ export default class Ibushak extends Component {
   }
 
   _fetchDataWithOffset = async (limit = 50) => {
-    for (let offset = limit; offset <= 1000; offset = offset + limit) {
-      this._fetchData(this.state.siteId, this.state.queryParams, limit, offset)
+    for (let offset = limit; offset <= 950; offset = offset + limit) {
+      this._fetchData(this.state.siteId, this.state.queryParams, offset)
     }
   }
 
