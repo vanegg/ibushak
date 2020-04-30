@@ -8,16 +8,13 @@ export default class Ibushak extends Component {
   constructor(props) {
     super(props)
     this.state = this._initialState('MLM')
-    this.state.firstTime = true
   }
 
   _initialState = (siteId = null) => {
     return {
       siteId: siteId,
       data: [],
-      countItems: 0,
       loaded: false,
-      firstTime: false,
       queryParams: {
         category: 'MLM1051',
         sort: 'price_asc'
@@ -25,12 +22,10 @@ export default class Ibushak extends Component {
     }
   }
 
-  _fetchAll = async (first = false) => {
+  _fetchAll = async () => {
     try {
-      if (first) {
-        await this._fetchData(this.state.siteId, this.state.queryParams)
-        this._fetchDataWithOffset()
-      }
+      await this._fetchData(this.state.siteId, this.state.queryParams)
+      this._fetchDataWithOffset()
       this.setState({ loaded: true })
     } catch (err) {
       console.log(err)
@@ -40,7 +35,7 @@ export default class Ibushak extends Component {
   }
 
   _fetchDataWithOffset = async (limit = 50) => {
-    for (let offset = limit; offset <= 1000; offset = offset + limit) {
+    for (let offset = 0; offset <= 1000; offset = offset + 50) {
       this._fetchData(this.state.siteId, this.state.queryParams, offset)
     }
   }
