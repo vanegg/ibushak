@@ -8,7 +8,7 @@
     "kitsu-core": "^6.4.0",
     "moment": "^2.24.0",
     "moment-timezone": "^0.5.26",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "prop-types": "^15.6.2",
     "react": "^16.7.0",
     "react-bootstrap-table-next": "^2.1.0",
